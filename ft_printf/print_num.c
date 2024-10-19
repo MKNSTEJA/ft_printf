@@ -6,7 +6,7 @@
 /*   By: kmummadi <kmummadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 15:16:16 by kmummadi          #+#    #+#             */
-/*   Updated: 2024/10/19 15:17:50 by kmummadi         ###   ########.fr       */
+/*   Updated: 2024/10/19 17:45:07 by kmummadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	print_num(va_list args)
 
 	num = va_arg(args, int);
 	str_num = ft_itoa(num);
+	if (!str_num)
+		return (-1);
 	length = ft_putstr(str_num);
 	free(str_num);
 	return (length);

@@ -6,7 +6,7 @@
 /*   By: kmummadi <kmummadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 15:13:24 by kmummadi          #+#    #+#             */
-/*   Updated: 2024/10/19 15:13:30 by kmummadi         ###   ########.fr       */
+/*   Updated: 2024/10/19 16:26:37 by kmummadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,5 @@ int	find_specifier(char str, va_list args)
 		return (ft_putchar('%'));
 	else if (str == 'p')
 		return (print_pointer(args));
-	return (0);
+	return (-1);
 }
