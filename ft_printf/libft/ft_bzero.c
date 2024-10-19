@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mknsteja <mknsteja@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kmummadi <kmummadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 18:07:18 by mknsteja          #+#    #+#             */
-/*   Updated: 2024/09/23 14:02:24 by mknsteja         ###   ########.fr       */
+/*   Updated: 2024/10/12 14:40:01 by kmummadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ void	ft_bzero(void *string, size_t range)
 	i = 0;
 	while (i < range)
 	{
-		*str = 0;
-		str++;
+		str[i] = 0;
 		i++;
 	}
 }

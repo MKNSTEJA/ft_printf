@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mknsteja <mknsteja@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kmummadi <kmummadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 17:39:51 by mknsteja          #+#    #+#             */
-/*   Updated: 2024/09/26 09:13:16 by mknsteja         ###   ########.fr       */
+/*   Updated: 2024/10/12 14:42:15 by kmummadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int					ft_strlen(const char *string);
 unsigned int		ft_strlcat(char *dst, const char *src, size_t size);
 int					ft_strncmp(char *s1, char *s2, unsigned int n);
 int					ft_toupper(int character);
-int					ft_tolower(int charecter);
+int					ft_tolower(int character);
 char				*ft_strchr(const char *string, int character);
 char				*ft_strrchr(const char *string, int character);
 void				*ft_memchr(const void *string, int character, size_t range);

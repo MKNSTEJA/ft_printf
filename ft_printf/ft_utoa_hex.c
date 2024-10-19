@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_utoa_hex.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mknsteja <mknsteja@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kmummadi <kmummadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/28 08:37:41 by mknsteja          #+#    #+#             */
-/*   Updated: 2024/09/28 09:12:00 by mknsteja         ###   ########.fr       */
+/*   Created: 2024/10/19 15:13:52 by kmummadi          #+#    #+#             */
+/*   Updated: 2024/10/19 15:43:18 by kmummadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	len(unsigned int num)
+static int	len(unsigned long num)
 {
 	int	len;
 
@@ -27,7 +27,7 @@ static int	len(unsigned int num)
 	return (len);
 }
 
-char	*ft_utoa_hex(unsigned int num, char format)
+char	*ft_utoa_hex(unsigned long num, char format)
 {
 	char	*hexa;
 	int		length;
@@ -46,7 +46,7 @@ char	*ft_utoa_hex(unsigned int num, char format)
 	str_hex[length] = '\0';
 	while (num)
 	{
-		str_hex[--length] = hexa[(num % 16)];
+		str_hex[--length] = hexa[num % 16];
 		num /= 16;
 	}
 	return (str_hex);

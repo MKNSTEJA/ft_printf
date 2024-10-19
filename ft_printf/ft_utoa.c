@@ -3,48 +3,46 @@
 /*                                                        :::      ::::::::   */
 /*   ft_utoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mknsteja <mknsteja@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kmummadi <kmummadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/28 08:06:13 by mknsteja          #+#    #+#             */
-/*   Updated: 2024/09/28 08:28:46 by mknsteja         ###   ########.fr       */
+/*   Created: 2024/10/19 15:30:19 by kmummadi          #+#    #+#             */
+/*   Updated: 2024/10/19 15:30:23 by kmummadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include <stdlib.h>
 
-static unsigned int	length(int n)
+static int	len(unsigned int num)
 {
-	unsigned int	len;
+	int	len;
 
 	len = 0;
-	if (n == 0)
+	if (num == 0)
 		return (1);
-	while (n)
+	while (num)
 	{
+		num = num / 10;
 		len++;
-		n /= 10;
 	}
 	return (len);
 }
 
-char	*ft_utoa(unsigned int n)
+char	*ft_utoa(unsigned int num)
 {
-	char			*str;
-	unsigned int	num;
-	unsigned int	len;
+	char	*str;
+	int		length;
 
-	num = n;
-	len = length(n);
-	if (n == 0)
-		return (ft_strdup("0"));
-	str = malloc(sizeof(char) * (len + 1));
+	length = len(num);
+	str = malloc(sizeof(char) * (length + 1));
 	if (str == NULL)
 		return (NULL);
-	str[len] = '\0';
+	str[length] = '\0';
+	if (num == 0)
+		str[0] = '0';
 	while (num)
 	{
-		str[--len] = '0' + num % 10;
-		num = num / 10;
+		str[--length] = (num % 10) + '0';
+		num /= 10;
 	}
 	return (str);
 }

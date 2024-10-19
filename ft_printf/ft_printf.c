@@ -3,37 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mknsteja <mknsteja@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kmummadi <kmummadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/27 11:53:20 by mknsteja          #+#    #+#             */
-/*   Updated: 2024/10/01 12:47:32 by mknsteja         ###   ########.fr       */
+/*   Created: 2024/10/19 15:11:27 by kmummadi          #+#    #+#             */
+/*   Updated: 2024/10/19 16:16:06 by kmummadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(char *str, ...)
+int	ft_printf(const char *str, ...)
 {
-	va_list		args;
-	int			count;
-	int			i;
-	t_printf	str_info;
+	va_list	args;
+	int		count;
+	int		i;
 
 	i = 0;
 	count = 0;
 	va_start(args, str);
 	while (str[i])
 	{
-		if (str[i] == '%' && !ft_isalpha(str[i + 1]))
+		if (str[i] == '%' && (ft_isalpha(str[i + 1]) || (str[i + 1] == '%')))
 		{
-			parse_info(&str_info, &str[i + 1]);
-			while(!ft_isalpha(str[i++]))
-			count += find_specifier(str[i], args, &str_info);
+			count += find_specifier(str[++i], args);
 		}
-		else if(str[i] == '%' && ft_isalpha(str[i + 1]))
-			count += find_specifier(str[++i], args, &str_info);
 		else
+		{
 			count += ft_putchar(str[i]);
+		}
 		i++;
 	}
 	va_end(args);

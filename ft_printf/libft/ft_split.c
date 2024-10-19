@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mknsteja <mknsteja@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kmummadi <kmummadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 17:57:20 by mknsteja          #+#    #+#             */
-/*   Updated: 2024/09/25 18:08:08 by mknsteja         ###   ########.fr       */
+/*   Updated: 2024/10/13 13:02:57 by kmummadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static int	count_char(char const *s, char c)
 	return (count);
 }
 
-static void	free_mem(char **string, int i)
+static int	free_mem(char **string, int i)
 {
 	int	j;
 
@@ -55,6 +55,7 @@ static void	free_mem(char **string, int i)
 		j++;
 	}
 	free(string);
+	return (0);
 }
 
 static int	make_substrings(char const *s, char c, char **string)
@@ -73,7 +74,7 @@ static int	make_substrings(char const *s, char c, char **string)
 			len = count_char(s, c);
 			string[i] = malloc(sizeof(char) * (len + 1));
 			if (!string[i])
-				return (free_mem(string, i), 0);
+				return (free_mem(string, i));
 			j = 0;
 			while (j < len)
 				string[i][j++] = *s++;
