@@ -6,12 +6,14 @@
 #    By: kmummadi <kmummadi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/19 15:14:25 by kmummadi          #+#    #+#              #
-#    Updated: 2024/10/19 15:21:09 by kmummadi         ###   ########.fr        #
+#    Updated: 2024/11/01 20:51:01 by kmummadi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
-SCRS = $(wildcard *.c)
+SCRS = find_specifier.c ft_printf.c ft_putchar.c ft_putstr.c \
+       ft_utoa_hex.c ft_utoa.c print_char.c print_hexa.c print_num.c \
+       print_pointer.c print_str.c print_unsigned.c
 CFLAGS = -Wall -Werror -Wextra
 OBJ = $(SCRS:.c=.o)
 LIBFT_DIR = ./libft
